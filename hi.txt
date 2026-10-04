@@ -1,0 +1,29 @@
+# Cumple Alesita
+
+Abre `index.html` en Chrome.
+
+## Fotos
+Coloca tus fotos dentro de `fotos/`:
+- foto1.jpg
+- foto2.jpg
+- foto3.jpg
+- foto4.jpg
+- puzzle.jpg
+
+Puedes usar PNG/JPG, pero si cambias el nombre/extensión, actualiza el `src` correspondiente en `index.html`.
+
+## Organización
+Cada etapa tiene su propio CSS y JS:
+- etapa1
+- etapa2
+- etapa3
+- etapa4
+- etapa5
+- etapa6
+- etapa7
+- etapa8
+
+`general.css` y `general.js` contienen solamente elementos compartidos.
+
+## Música
+La carpeta `musica/` queda preparada para agregar una canción después.
