@@ -1,0 +1,483 @@
+/* ============================================================
+   GENERAL — estilos compartidos por todas las etapas
+============================================================ */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+
+    /*
+       ANTES:
+       overflow: hidden;
+
+       AHORA:
+       La página puede desplazarse verticalmente
+       cuando una etapa tenga más contenido que la pantalla.
+    */
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    background: #070509;
+    color: #fff;
+
+    font-family: 'Montserrat', sans-serif;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* ============================================================
+   ETAPAS
+============================================================ */
+
+.stage {
+    display: none;
+
+    position: relative;
+
+    width: 100%;
+
+    /*
+       Antes:
+       height: 100vh;
+
+       Ahora:
+       mínimo una pantalla, pero puede crecer.
+    */
+    min-height: 100vh;
+
+    height: auto;
+
+    padding: 35px 20px;
+
+    /*
+       MUY IMPORTANTE:
+       No cortar el contenido.
+    */
+    overflow: visible;
+
+    justify-content: center;
+
+    /*
+       Permitimos que el contenido crezca hacia abajo.
+    */
+    align-items: flex-start;
+
+    z-index: 2;
+}
+
+.stage.active {
+    display: flex;
+}
+
+
+/* ============================================================
+   CONTENIDO DE LAS ETAPAS
+============================================================ */
+
+.stage-content {
+    width: min(1100px, 94vw);
+
+    /*
+       Ya no limitamos la altura.
+    */
+    height: auto;
+
+    min-height: 0;
+
+    max-height: none;
+
+    overflow: visible;
+
+    text-align: center;
+
+    animation:
+        stageIn .9s cubic-bezier(.2, .8, .2, 1);
+}
+
+
+/* ============================================================
+   ANIMACIÓN DE ENTRADA
+============================================================ */
+
+@keyframes stageIn {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(28px)
+            scale(.985);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: none;
+    }
+}
+
+
+/* ============================================================
+   TEXTOS
+============================================================ */
+
+.eyebrow {
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    text-transform: uppercase;
+
+    opacity: .55;
+
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size:
+        clamp(45px, 7vw, 78px);
+
+    line-height: .95;
+
+    font-weight: 500;
+}
+
+.section-copy {
+    max-width: 650px;
+
+    margin:
+        20px auto 35px;
+
+    font-size: 14px;
+
+    line-height: 1.9;
+
+    color:
+        rgba(255, 255, 255, .68);
+}
+
+
+/* ============================================================
+   BOTONES
+============================================================ */
+
+.main-btn {
+    position: relative;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .3);
+
+    background:
+        rgba(255, 255, 255, .055);
+
+    color: #fff;
+
+    border-radius: 100px;
+
+    padding:
+        15px 30px;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    cursor: pointer;
+
+    transition: .35s;
+
+    backdrop-filter: blur(12px);
+}
+
+.main-btn:hover {
+    transform:
+        translateY(-3px);
+
+    background:
+        rgba(255, 255, 255, .12);
+
+    border-color:
+        rgba(255, 190, 215, .7);
+
+    box-shadow:
+        0 15px 45px
+        rgba(160, 40, 90, .25);
+}
+
+
+/* ============================================================
+   UTILIDADES
+============================================================ */
+
+.hidden {
+    display: none !important;
+}
+
+.hint,
+.tiny-love {
+    margin-top: 32px;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    opacity: .35;
+}
+
+.interaction-hint {
+    margin:
+        15px 0 25px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    opacity: .5;
+}
+
+
+/* ============================================================
+   PARTÍCULAS
+============================================================ */
+
+#particles {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    z-index: 50;
+}
+
+.particle {
+    position: absolute;
+
+    width: 2px;
+    height: 2px;
+
+    border-radius: 50%;
+
+    background: #fff;
+
+    opacity: .5;
+
+    animation:
+        particleFloat
+        linear
+        infinite;
+}
+
+@keyframes particleFloat {
+
+    from {
+        transform:
+            translateY(105vh);
+
+        opacity: 0;
+    }
+
+    15% {
+        opacity: .7;
+    }
+
+    80% {
+        opacity: .5;
+    }
+
+    to {
+        transform:
+            translateY(-10vh);
+
+        opacity: 0;
+    }
+}
+
+
+/* ============================================================
+   FLASH
+============================================================ */
+
+#flash {
+    position: fixed;
+
+    inset: 0;
+
+    background: #fff;
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    z-index: 100;
+}
+
+.flash-on {
+    animation:
+        flash
+        .7s
+        ease;
+}
+
+@keyframes flash {
+
+    0% {
+        opacity: 0;
+    }
+
+    25% {
+        opacity: .18;
+    }
+
+    100% {
+        opacity: 0;
+    }
+}
+
+
+/* ============================================================
+   VISOR DE FOTOS
+============================================================ */
+
+.photo-modal {
+    position: fixed;
+
+    inset: 0;
+
+    z-index: 200;
+
+    display: none;
+
+    place-items: center;
+
+    padding: 30px;
+
+    background:
+        rgba(4, 2, 6, .92);
+
+    backdrop-filter:
+        blur(12px);
+}
+
+.photo-modal.open {
+    display: grid;
+}
+
+.photo-modal img {
+    max-width:
+        min(900px, 92vw);
+
+    max-height: 78vh;
+
+    object-fit: contain;
+
+    border:
+        8px solid #fff;
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, .6);
+}
+
+.photo-modal p {
+    position: absolute;
+
+    bottom: 7vh;
+
+    font-family:
+        'Cormorant Garamond',
+        serif;
+
+    font-size: 24px;
+
+    color: #f4cad9;
+}
+
+
+/* ============================================================
+   BOTÓN CERRAR FOTO
+============================================================ */
+
+#photo-close {
+    position: absolute;
+
+    top: 25px;
+    right: 30px;
+
+    width: 45px;
+    height: 45px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .3);
+
+    border-radius: 50%;
+
+    background:
+        rgba(255, 255, 255, .06);
+
+    color: white;
+
+    font-size: 28px;
+
+    cursor: pointer;
+}
+
+
+/* ============================================================
+   MÓVIL
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .stage {
+        min-height: 100vh;
+
+        height: auto;
+
+        padding:
+            25px 15px;
+
+        overflow: visible;
+
+        align-items: flex-start;
+    }
+
+    .stage-content {
+        height: auto;
+
+        min-height: 0;
+
+        max-height: none;
+
+        overflow: visible;
+    }
+
+    .section-title {
+        font-size: 48px;
+    }
+
+    .section-copy {
+        font-size: 13px;
+
+        line-height: 1.7;
+    }
+}

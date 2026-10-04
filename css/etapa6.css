@@ -1,0 +1,321 @@
+/* ============================================================
+   ETAPA 6 — PUZZLE REAL
+============================================================ */
+
+#stage6{
+    background:
+      radial-gradient(circle at center,rgba(113,38,69,.22),transparent 55%),
+      #08070a;
+}
+
+.puzzle{
+    --piece-size:min(125px,27vw);
+    
+    width:calc(var(--piece-size) * 3);
+    height:calc(var(--piece-size) * 3);
+
+    margin:30px auto 20px;
+
+    display:grid;
+    grid-template-columns:repeat(3,var(--piece-size));
+    grid-template-rows:repeat(3,var(--piece-size));
+
+    position:relative;
+
+    filter:drop-shadow(0 25px 45px rgba(0,0,0,.55));
+}
+
+/* ============================================================
+   PIEZA
+============================================================ */
+
+.puzzle-piece{
+    --tab:22%;
+
+    position:relative;
+
+    width:var(--piece-size);
+    height:var(--piece-size);
+
+    cursor:pointer;
+
+    background-image:url("../fotos/puzzle.jpg");
+    background-repeat:no-repeat;
+    background-size:300% 300%;
+
+    transition:
+        transform .25s ease,
+        filter .25s ease,
+        z-index .25s ease;
+
+    /*
+       La forma base se modifica individualmente
+       mediante las clases de cada posición.
+    */
+    
+    z-index:1;
+}
+
+/* ============================================================
+   EFECTO AL PASAR EL MOUSE
+============================================================ */
+
+.puzzle-piece:hover{
+    filter:brightness(1.18);
+    z-index:10;
+    transform:scale(1.025);
+}
+
+/* ============================================================
+   PIEZA SELECCIONADA
+============================================================ */
+
+.puzzle-piece.selected{
+    z-index:20;
+
+    filter:
+        brightness(1.2)
+        drop-shadow(0 0 10px rgba(239,171,195,.8));
+
+    transform:scale(.94);
+
+    outline:none;
+}
+
+/* ============================================================
+   FORMAS DE ROMPECABEZAS
+
+   Usamos clip-path + pseudo elementos para crear
+   pestañas y huecos redondeados.
+============================================================ */
+
+/*
+   PIEZA CENTRAL
+*/
+
+.puzzle-piece:nth-child(5){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 -18 65 -18 65 0
+         L 100 0
+         L 100 35
+         C 118 35 118 65 100 65
+         L 100 100
+         L 65 100
+         C 65 118 35 118 35 100
+         L 0 100
+         L 0 65
+         C -18 65 -18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 1 — ESQUINA SUPERIOR IZQUIERDA
+============================================================ */
+
+.puzzle-piece:nth-child(1){
+    clip-path:path(
+        "M 0 0
+         L 100 0
+         L 100 35
+         C 118 35 118 65 100 65
+         L 100 100
+         L 65 100
+         C 65 118 35 118 35 100
+         L 0 100 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 2 — ARRIBA CENTRO
+============================================================ */
+
+.puzzle-piece:nth-child(2){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 -18 65 -18 65 0
+         L 100 0
+         L 100 35
+         C 118 35 118 65 100 65
+         L 100 100
+         L 65 100
+         C 65 82 35 82 35 100
+         L 0 100
+         L 0 65
+         C -18 65 -18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 3 — ESQUINA SUPERIOR DERECHA
+============================================================ */
+
+.puzzle-piece:nth-child(3){
+    clip-path:path(
+        "M 0 0
+         L 100 0
+         L 100 100
+         L 65 100
+         C 65 82 35 82 35 100
+         L 0 100
+         L 0 65
+         C 18 65 18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 4 — CENTRO IZQUIERDA
+============================================================ */
+
+.puzzle-piece:nth-child(4){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 -18 65 -18 65 0
+         L 100 0
+         L 100 35
+         C 82 35 82 65 100 65
+         L 100 100
+         L 65 100
+         C 65 118 35 118 35 100
+         L 0 100
+         Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 6 — CENTRO DERECHA
+============================================================ */
+
+.puzzle-piece:nth-child(6){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 -18 65 -18 65 0
+         L 100 0
+         L 100 100
+         L 65 100
+         C 65 82 35 82 35 100
+         L 0 100
+         L 0 65
+         C 18 65 18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 7 — ESQUINA INFERIOR IZQUIERDA
+============================================================ */
+
+.puzzle-piece:nth-child(7){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 18 65 18 65 0
+         L 100 0
+         L 100 35
+         C 118 35 118 65 100 65
+         L 100 100
+         L 0 100 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 8 — ABAJO CENTRO
+============================================================ */
+
+.puzzle-piece:nth-child(8){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 18 65 18 65 0
+         L 100 0
+         L 100 35
+         C 82 35 82 65 100 65
+         L 100 100
+         L 65 100
+         C 65 118 35 118 35 100
+         L 0 100
+         L 0 65
+         C -18 65 -18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   PIEZA 9 — ESQUINA INFERIOR DERECHA
+============================================================ */
+
+.puzzle-piece:nth-child(9){
+    clip-path:path(
+        "M 0 0
+         L 35 0
+         C 35 18 65 18 65 0
+         L 100 0
+         L 100 100
+         L 0 100
+         L 0 65
+         C 18 65 18 35 0 35 Z"
+    );
+}
+
+/* ============================================================
+   MENSAJE
+============================================================ */
+
+.puzzle-message{
+    min-height:30px;
+    margin:18px auto 20px;
+
+    color:#e9aec3;
+
+    font:
+        italic 20px/1.4
+        'Cormorant Garamond',
+        serif;
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease;
+}
+
+/* ============================================================
+   BOTÓN
+============================================================ */
+
+#puzzle-next{
+    margin-top:5px;
+}
+
+/* ============================================================
+   MÓVIL
+============================================================ */
+
+@media(max-width:700px){
+
+    .puzzle{
+        --piece-size:min(30vw,115px);
+
+        margin-top:25px;
+    }
+
+    .puzzle-message{
+        font-size:19px;
+        padding:0 10px;
+    }
+}
+
+/* ============================================================
+   PANTALLAS MUY PEQUEÑAS
+============================================================ */
+
+@media(max-width:380px){
+
+    .puzzle{
+        --piece-size:29vw;
+    }
+
+    .puzzle-message{
+        font-size:17px;
+    }
+}

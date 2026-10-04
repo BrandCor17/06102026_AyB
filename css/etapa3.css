@@ -1,0 +1,418 @@
+/* ============================================================
+   ETAPA 3 — CARTA
+============================================================ */
+
+#stage3 {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(111, 36, 67, .25),
+            transparent 48%
+        ),
+        #0b080b;
+}
+
+
+/* ============================================================
+   ESCENA DE LA CARTA
+============================================================ */
+
+.letter-scene {
+    height: 390px;
+    display: grid;
+    place-items: center;
+    margin-top: 5px;
+}
+
+
+/* ============================================================
+   CONTENEDOR GENERAL
+============================================================ */
+
+.envelope-wrap {
+    position: relative;
+    width: min(420px, 90vw);
+    height: 285px;
+    perspective: 1200px;
+}
+
+
+/* ============================================================
+   CARTA
+   Antes de abrir el sobre, permanece completamente escondida
+============================================================ */
+
+.letter-paper {
+    position: absolute;
+
+    width: 90%;
+    height: 350px;
+
+    left: 5%;
+    bottom: 12px;
+
+    padding: 12px;
+
+    background: #f9f2eb;
+    color: #3d2630;
+
+    border-radius: 4px;
+
+    box-shadow:
+        0 15px 40px rgba(0, 0, 0, .35);
+
+    /*
+        La carta comienza escondida
+        detrás del sobre
+    */
+
+    transform:
+        translateY(190px)
+        scale(.94);
+
+    opacity: 0;
+
+    transition:
+        transform 1.2s cubic-bezier(.16, .84, .24, 1),
+        opacity .45s ease;
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* ============================================================
+   CARTA ABIERTA
+============================================================ */
+
+.envelope-wrap.open .letter-paper {
+
+    /*
+        Antes estaba en -235px.
+        Ahora queda mucho más abajo para
+        evitar que salga de la pantalla.
+    */
+
+    transform:
+        translateY(-125px)
+        scale(1);
+
+    opacity: 1;
+
+    z-index: 7;
+
+    pointer-events: auto;
+}
+
+
+/* ============================================================
+   CONTENIDO DE LA CARTA
+============================================================ */
+
+.paper-inner {
+    height: 100%;
+
+    overflow: auto;
+
+    padding: 25px;
+
+    text-align: left;
+
+    border: 1px solid rgba(90, 45, 60, .12);
+
+    box-sizing: border-box;
+}
+
+
+/* Título */
+
+.paper-inner h3 {
+    text-align: center;
+
+    font:
+        600 31px 'Cormorant Garamond', serif;
+
+    color: #813650;
+
+    margin-top: 0;
+    margin-bottom: 16px;
+}
+
+
+/* Texto */
+
+.paper-inner p {
+    font:
+        400 16px/1.55 'Cormorant Garamond', serif;
+
+    margin-bottom: 10px;
+}
+
+
+/* Firma */
+
+.signature {
+    text-align: right;
+
+    font-style: italic;
+
+    margin-top: 15px;
+}
+
+
+/* ============================================================
+   SOBRE
+============================================================ */
+
+.envelope {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 235px;
+
+    cursor: pointer;
+
+    z-index: 4;
+
+    filter:
+        drop-shadow(
+            0 25px 35px rgba(0, 0, 0, .4)
+        );
+}
+
+
+/* ============================================================
+   PARTE TRASERA DEL SOBRE
+============================================================ */
+
+.envelope-back {
+    position: absolute;
+
+    inset: 0;
+
+    background: #722e49;
+
+    border-radius: 8px;
+}
+
+
+/* ============================================================
+   PARTE FRONTAL DEL SOBRE
+============================================================ */
+
+.envelope-front {
+    position: absolute;
+
+    left: 0;
+    bottom: 0;
+
+    width: 100%;
+    height: 75%;
+
+    background:
+        linear-gradient(
+            145deg,
+            #91405d,
+            #61253e
+        );
+
+    clip-path:
+        polygon(
+            0 0,
+            50% 55%,
+            100% 0,
+            100% 100%,
+            0 100%
+        );
+
+    z-index: 4;
+}
+
+
+/* ============================================================
+   SOLAPA DEL SOBRE
+============================================================ */
+
+.envelope-flap {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background: #a64b6d;
+
+    clip-path:
+        polygon(
+            0 0,
+            100% 0,
+            50% 57%
+        );
+
+    transform-origin: top;
+
+    transition:
+        transform 1s cubic-bezier(.2, .8, .2, 1);
+
+    z-index: 6;
+}
+
+
+/* ============================================================
+   SOLAPA ABIERTA
+============================================================ */
+
+.envelope-wrap.open .envelope-flap {
+    transform: rotateX(180deg);
+}
+
+
+/* ============================================================
+   SELLO DE CERA
+============================================================ */
+
+.wax {
+    position: absolute;
+
+    z-index: 8;
+
+    left: 50%;
+    top: 48%;
+
+    transform:
+        translate(-50%, -50%);
+
+    width: 42px;
+    height: 42px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+
+    background: #d47798;
+
+    font:
+        22px 'Cormorant Garamond', serif;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, .3);
+
+    transition: .5s;
+}
+
+
+/* ============================================================
+   SELLO DESAPARECE AL ABRIR
+============================================================ */
+
+.envelope-wrap.open .wax {
+    opacity: 0;
+
+    transform:
+        translate(-50%, -50%)
+        scale(.4);
+}
+
+
+/* ============================================================
+   BOTÓN CONTINUAR
+============================================================ */
+
+#letter-next {
+    margin-top: 10px;
+
+    animation:
+        buttonAppear .7s ease;
+}
+
+
+@keyframes buttonAppear {
+
+    from {
+        opacity: 0;
+
+        transform:
+            translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform:
+            translateY(0);
+    }
+}
+
+
+/* ============================================================
+   MÓVIL
+============================================================ */
+
+@media (max-width: 700px) {
+
+    .letter-scene {
+        height: 365px;
+    }
+
+
+    /* Carta */
+
+    .letter-paper {
+
+        height: 310px;
+
+        transform:
+            translateY(160px)
+            scale(.94);
+    }
+
+
+    /* Carta abierta */
+
+    .envelope-wrap.open .letter-paper {
+
+        /*
+            Antes estaba en -210px.
+            Ahora queda mucho más abajo.
+        */
+
+        transform:
+            translateY(-105px)
+            scale(1);
+    }
+
+
+    /* Sobre */
+
+    .envelope {
+        height: 210px;
+    }
+
+
+    /* Contenido */
+
+    .paper-inner {
+        padding: 20px;
+    }
+
+
+    /* Título */
+
+    .paper-inner h3 {
+        font-size: 27px;
+    }
+
+
+    /* Texto */
+
+    .paper-inner p {
+        font-size: 15px;
+    }
+}

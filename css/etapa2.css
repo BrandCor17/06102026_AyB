@@ -1,0 +1,32 @@
+/* ============================================================
+   ETAPA 2 — nombre
+============================================================ */
+#stage2{
+    background:
+      radial-gradient(circle at center,rgba(126,36,76,.26),transparent 50%),
+      #08060a;
+}
+.giant-name{
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(130px,25vw,270px);
+    line-height:.7;
+    font-weight:500;
+    letter-spacing:-10px;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(246,194,214,.75);
+    text-shadow:0 0 80px rgba(240,130,170,.12);
+}
+.name-copy{
+    max-width:550px;
+    margin:50px auto 25px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:23px;
+    line-height:1.5;
+    color:rgba(255,255,255,.75);
+}
+.name-line{
+    width:100px;height:1px;
+    background:#d88ca9;
+    margin:25px auto;
+    opacity:.6;
+}

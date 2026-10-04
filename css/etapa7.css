@@ -1,0 +1,86 @@
+/* ============================================================
+   ETAPA 7 — pastel
+============================================================ */
+#stage7{
+    background:
+      radial-gradient(circle at 50% 52%,rgba(145,42,80,.28),transparent 33%),
+      #08060a;
+}
+.cake{
+    position:relative;
+    width:300px;height:290px;
+    margin:25px auto 10px;
+}
+.cake-bottom,.cake-middle,.cake-top{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    border-radius:12px;
+}
+.cake-bottom{
+    bottom:15px;width:285px;height:85px;
+    background:linear-gradient(#8f3a59,#65253f);
+    box-shadow:0 20px 45px rgba(0,0,0,.5);
+}
+.cake-middle{
+    bottom:82px;width:245px;height:75px;
+    background:linear-gradient(#b95e7d,#8b3a58);
+}
+.cake-top{
+    bottom:140px;width:220px;height:65px;
+    background:#f2b8ca;
+    border-radius:50%;
+}
+.cream{
+    position:absolute;
+    height:25px;
+    border-radius:50%;
+    background:#fff0f5;
+    z-index:3;
+}
+.cream-1{width:205px;left:47px;bottom:143px}
+.cream-2{width:235px;left:32px;bottom:83px;opacity:.85}
+.cherry{
+    position:absolute;
+    width:18px;height:18px;
+    border-radius:50%;
+    background:#9b3154;
+    z-index:4;
+    box-shadow:inset -4px -3px 5px rgba(0,0,0,.25);
+}
+.cherry-1{left:82px;bottom:170px}
+.cherry-2{left:140px;bottom:182px}
+.cherry-3{left:195px;bottom:166px}
+.candle{
+    position:absolute;
+    bottom:195px;
+    width:15px;height:70px;
+    z-index:7;
+    border-radius:5px;
+    background:repeating-linear-gradient(45deg,#fff 0 8px,#df87a5 8px 16px);
+}
+.candle-1{left:103px}
+.candle-2{left:143px}
+.candle-3{left:183px}
+.candle i{
+    position:absolute;
+    left:50%;top:-25px;
+    width:18px;height:25px;
+    transform:translateX(-50%) rotate(45deg);
+    border-radius:50% 50% 50% 0;
+    background:#ffd978;
+    box-shadow:0 0 25px #ffbd55;
+    animation:flame 1s infinite alternate;
+}
+.candle.off i{display:none}
+@keyframes flame{
+    from{transform:translateX(-50%) rotate(45deg) scale(.9)}
+    to{transform:translateX(-50%) rotate(45deg) scale(1.1)}
+}
+.cake-message{
+    min-height:30px;
+    max-width:550px;
+    margin:10px auto 20px;
+    font:italic 22px 'Cormorant Garamond',serif;
+    color:#f1c0d0;
+}

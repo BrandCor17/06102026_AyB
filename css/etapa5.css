@@ -1,0 +1,493 @@
+/* ============================================================
+   ETAPA 5 — REGALOS
+============================================================ */
+
+#stage5 {
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(137, 41, 80, .25),
+            transparent 50%
+        ),
+        #09070a;
+
+    height: auto !important;
+    min-height: 100vh;
+    max-height: none !important;
+
+    overflow: visible !important;
+
+    padding-top: 35px;
+    padding-bottom: 110px;
+}
+
+
+/* ============================================================
+   CONTENIDO
+============================================================ */
+
+#stage5 .stage-content {
+    height: auto !important;
+
+    min-height: 0 !important;
+
+    max-height: none !important;
+
+    overflow: visible !important;
+
+    width: min(1100px, 94vw);
+}
+
+
+/* ============================================================
+   REGALOS
+============================================================ */
+
+#stage5 .gifts-grid {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: flex-end;
+
+    gap: 65px;
+
+    margin:
+        55px auto 60px;
+
+    width: 100%;
+
+    box-sizing: border-box;
+}
+
+
+/* ============================================================
+   TARJETA
+============================================================ */
+
+#stage5 .gift-card {
+    position: relative;
+
+    width: 145px;
+
+    cursor: pointer;
+
+    flex-shrink: 0;
+
+    -webkit-tap-highlight-color: transparent;
+
+    touch-action: manipulation;
+}
+
+
+/* ============================================================
+   TEXTO DEL REGALO
+============================================================ */
+
+#stage5 .gift-card > span {
+    display: block;
+
+    margin-top: 22px;
+
+    font:
+        italic 18px
+        'Cormorant Garamond', serif;
+
+    color: #e8b3c7;
+}
+
+
+/* ============================================================
+   CAJA
+============================================================ */
+
+#stage5 .gift-box {
+    position: relative;
+
+    width: 140px;
+    height: 130px;
+
+    margin: auto;
+}
+
+
+/* ============================================================
+   CUERPO
+============================================================ */
+
+#stage5 .gift-body {
+    position: absolute;
+
+    left: 5px;
+    bottom: 0;
+
+    width: 130px;
+    height: 90px;
+
+    border-radius: 3px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #9b3c60,
+            #64243e
+        );
+
+    box-shadow:
+        0 18px 35px rgba(0, 0, 0, .4);
+}
+
+
+/* ============================================================
+   TAPA
+============================================================ */
+
+#stage5 .gift-lid {
+    position: absolute;
+
+    left: 0;
+    top: 27px;
+
+    width: 140px;
+    height: 25px;
+
+    border-radius: 4px;
+
+    background: #b34b70;
+
+    z-index: 3;
+
+    transition:
+        .65s
+        cubic-bezier(.2, .8, .2, 1);
+}
+
+
+/* ============================================================
+   CINTA VERTICAL
+============================================================ */
+
+#stage5 .ribbon-v {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 56px;
+    bottom: 0;
+
+    width: 28px;
+    height: 90px;
+
+    background:
+        rgba(255, 218, 231, .35);
+}
+
+
+/* ============================================================
+   CINTA HORIZONTAL
+============================================================ */
+
+#stage5 .ribbon-h {
+    position: absolute;
+
+    z-index: 4;
+
+    left: 5px;
+    bottom: 37px;
+
+    width: 130px;
+    height: 17px;
+
+    background:
+        rgba(255, 218, 231, .3);
+}
+
+
+/* ============================================================
+   MOÑO
+============================================================ */
+
+#stage5 .bow {
+    position: absolute;
+
+    z-index: 5;
+
+    width: 35px;
+    height: 22px;
+
+    top: 8px;
+
+    border:
+        5px solid #efbfd0;
+
+    border-radius: 50%;
+}
+
+#stage5 .bow-left {
+    left: 36px;
+
+    transform:
+        rotate(25deg);
+}
+
+#stage5 .bow-right {
+    left: 69px;
+
+    transform:
+        rotate(-25deg);
+}
+
+
+/* ============================================================
+   COLORES
+============================================================ */
+
+#stage5 .gift-pink .gift-body {
+    background:
+        linear-gradient(
+            135deg,
+            #b75a78,
+            #81334f
+        );
+}
+
+#stage5 .gift-pink .gift-lid {
+    background: #c56a89;
+}
+
+#stage5 .gift-dark .gift-body {
+    background:
+        linear-gradient(
+            135deg,
+            #5c314b,
+            #30202d
+        );
+}
+
+#stage5 .gift-dark .gift-lid {
+    background: #71405a;
+}
+
+
+/* ============================================================
+   ANIMACIÓN DE APERTURA
+============================================================ */
+
+#stage5 .gift-card.open .gift-lid {
+    transform:
+        translateY(-80px)
+        rotate(-5deg);
+}
+
+
+/* ============================================================
+   MENSAJE
+============================================================ */
+
+#stage5 .gift-message {
+    position: fixed;
+
+    z-index: 180;
+
+    left: 50%;
+    top: 50%;
+
+    width: min(470px, 88vw);
+
+    transform:
+        translate(-50%, -50%)
+        scale(.8);
+
+    opacity: 0;
+
+    pointer-events: none;
+
+    padding: 42px 35px;
+
+    border:
+        1px solid
+        rgba(255, 255, 255, .16);
+
+    border-radius: 18px;
+
+    background:
+        rgba(35, 17, 27, .95);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0, 0, 0, .65);
+
+    backdrop-filter: blur(20px);
+
+    transition: .4s;
+
+    box-sizing: border-box;
+}
+
+#stage5 .gift-message.open {
+    opacity: 1;
+
+    transform:
+        translate(-50%, -50%)
+        scale(1);
+
+    pointer-events: auto;
+}
+
+#stage5 .gift-message p {
+    font:
+        400 25px/1.5
+        'Cormorant Garamond', serif;
+
+    color: #f2d1dd;
+}
+
+#stage5 .gift-message-mark {
+    font-size: 30px;
+
+    color: #df8fab;
+
+    margin-bottom: 15px;
+}
+
+#stage5 .close-message {
+    position: absolute;
+
+    right: 15px;
+    top: 12px;
+
+    background: none;
+
+    border: 0;
+
+    color: #fff;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    opacity: .6;
+}
+
+
+/* ============================================================
+   BOTÓN CONTINUAR
+============================================================ */
+
+#stage5 .main-btn {
+    display: block;
+
+    position: relative;
+
+    z-index: 30;
+
+    margin:
+        20px auto 0;
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+    touch-action: manipulation;
+}
+
+
+/* ============================================================
+   MÓVIL
+============================================================ */
+
+@media (max-width: 700px) {
+
+    #stage5 {
+        padding:
+            30px 0 100px;
+    }
+
+    #stage5 .gifts-grid {
+        gap: 30px;
+
+        flex-wrap: wrap;
+
+        margin:
+            45px auto 55px;
+
+        padding:
+            0 15px;
+
+        box-sizing: border-box;
+    }
+
+    #stage5 .gift-card {
+        width: 140px;
+    }
+
+    #stage5 .gift-box {
+        width: 135px;
+        height: 125px;
+    }
+
+    #stage5 .gift-body {
+        width: 125px;
+        height: 87px;
+    }
+
+    #stage5 .gift-lid {
+        width: 135px;
+    }
+
+    #stage5 .ribbon-v {
+        left: 54px;
+        height: 87px;
+    }
+
+    #stage5 .ribbon-h {
+        width: 125px;
+    }
+
+    #stage5 .gift-message {
+        width: 88vw;
+
+        padding:
+            38px 25px;
+    }
+
+    #stage5 .gift-message p {
+        font-size: 22px;
+    }
+}
+
+
+/* ============================================================
+   TELÉFONOS PEQUEÑOS
+============================================================ */
+
+@media (max-width: 400px) {
+
+    #stage5 .gifts-grid {
+        gap: 18px;
+
+        padding:
+            0 10px;
+    }
+
+    #stage5 .gift-card {
+        width: 130px;
+    }
+
+    #stage5 .gift-box {
+        transform:
+            scale(.9);
+        transform-origin:
+            center bottom;
+    }
+
+    #stage5 .gift-card > span {
+        margin-top: 12px;
+
+        font-size: 16px;
+    }
+
+    #stage5 .main-btn {
+        margin-top: 25px;
+    }
+}

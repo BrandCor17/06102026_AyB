@@ -1,0 +1,66 @@
+/* ============================================================
+   ETAPA 1 — bienvenida
+============================================================ */
+#stage1{
+    background:
+      radial-gradient(circle at 50% 45%,rgba(160,47,93,.32),transparent 34%),
+      radial-gradient(circle at 15% 80%,rgba(82,26,65,.25),transparent 35%),
+      #070509;
+}
+.intro-content{position:relative}
+.pre-title{
+    font-size:11px;
+    letter-spacing:4px;
+    text-transform:uppercase;
+    opacity:.45;
+}
+.hero-name{
+    margin:15px 0 4px;
+    font-family:'Cormorant Garamond',serif;
+    font-size:clamp(90px,17vw,190px);
+    line-height:.72;
+    font-weight:500;
+    color:#f2bfd0;
+    text-shadow:0 0 70px rgba(220,100,150,.2);
+}
+.hero-subtitle{
+    font-family:'Cormorant Garamond',serif;
+    font-size:20px;
+    font-style:italic;
+    color:#e9a9c1;
+}
+.intro-text{
+    max-width:600px;
+    margin:38px auto 32px;
+    font-size:14px;
+    line-height:2;
+    color:rgba(255,255,255,.67);
+}
+.intro-orbit{
+    position:absolute;
+    width:420px;height:420px;
+    left:50%;top:50%;
+    transform:translate(-50%,-50%);
+    border:1px solid rgba(245,180,205,.08);
+    border-radius:50%;
+    pointer-events:none;
+}
+.intro-orbit:before,.intro-orbit:after{
+    content:"";
+    position:absolute;
+    inset:55px;
+    border:1px solid rgba(245,180,205,.06);
+    border-radius:50%;
+}
+.intro-orbit span{
+    position:absolute;
+    width:6px;height:6px;
+    border-radius:50%;
+    background:#efadc5;
+    top:0;left:50%;
+    box-shadow:0 0 18px #efadc5;
+    animation:orbit 7s linear infinite;
+}
+@keyframes orbit{
+    to{transform:rotate(360deg) translateX(210px) rotate(-360deg)}
+}

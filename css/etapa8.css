@@ -1,0 +1,63 @@
+/* ============================================================
+   ETAPA 8 — final
+============================================================ */
+#stage8{
+    background:
+      radial-gradient(circle at 50% 40%,rgba(159,42,88,.38),transparent 32%),
+      radial-gradient(circle at 15% 15%,rgba(90,30,70,.2),transparent 30%),
+      #050407;
+}
+.final-content{position:relative;z-index:2}
+.heart-big{
+    font-size:110px;
+    line-height:.8;
+    color:#ef9fbc;
+    text-shadow:0 0 60px rgba(240,110,160,.4);
+    animation:heartbeat 1.6s infinite;
+}
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.12)}
+}
+.final-title{
+    margin:25px 0;
+    font:500 clamp(55px,9vw,100px)/.88 'Cormorant Garamond',serif;
+}
+.final-title span{color:#efb1c8}
+.final-letter{
+    max-width:680px;
+    margin:0 auto;
+    color:rgba(255,255,255,.72);
+    font:400 19px/1.7 'Cormorant Garamond',serif;
+}
+.final-letter p{margin-bottom:14px}
+.final-love{
+    margin-top:30px;
+    color:#f0abc2;
+    font-size:38px;
+    font-style:italic;
+}
+.final-sign{
+    margin-top:45px;
+    font-size:9px;
+    letter-spacing:4px;
+    opacity:.3;
+    text-transform:uppercase;
+}
+.final-stars{
+    position:absolute;
+    inset:0;
+    background-image:
+      radial-gradient(circle,rgba(255,255,255,.65) 1px,transparent 1.5px);
+    background-size:90px 90px;
+    opacity:.14;
+    animation:starsMove 20s linear infinite;
+}
+@keyframes starsMove{
+    to{transform:translateY(-90px)}
+}
+@media(max-width:600px){
+    .heart-big{font-size:80px}
+    .final-letter{font-size:18px}
+    .final-love{font-size:32px}
+}
